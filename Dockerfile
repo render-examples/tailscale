@@ -17,7 +17,7 @@ RUN apt-get -qq update \
 RUN useradd --no-log-init --create-home --user-group --uid 1000 render
 
 USER 1000:1000
-COPY --chown=1000:1000 *.sh /home/render/
+COPY --chown=1000:1000 run-tailscale.sh start.sh /home/render/
 
 # install Tailscale as root
 USER root
