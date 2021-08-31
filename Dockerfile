@@ -6,6 +6,7 @@ RUN apt-get -qq update \
     ca-certificates \
     netcat \
     wget \
+    dnsutils \
   > /dev/null \
   && apt-get -qq clean \
   && rm -rf \
@@ -17,7 +18,8 @@ RUN apt-get -qq update \
 RUN useradd --no-log-init --create-home --user-group --uid 1000 render
 
 USER 1000:1000
-COPY --chown=1000:1000 *.sh /home/render/
+RUN echo "+search +short" > /home/render/.digrc
+COPY --chown=1000:1000 run-tailscale.sh start.sh /home/render/
 
 # install Tailscale as root
 USER root
