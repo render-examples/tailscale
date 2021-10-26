@@ -1,4 +1,5 @@
 FROM debian:latest
+WORKDIR /render
 
 RUN apt-get -qq update \
   && apt-get -qq install --upgrade -y --no-install-recommends \
@@ -15,20 +16,10 @@ RUN apt-get -qq update \
     /var/tmp/* \
   && :
 
-RUN useradd --no-log-init --create-home --user-group --uid 1000 render
+RUN echo "+search +short" > /root/.digrc
+COPY run-tailscale.sh start.sh /render/
 
-USER 1000:1000
-RUN echo "+search +short" > /home/render/.digrc
-COPY --chown=1000:1000 run-tailscale.sh start.sh /home/render/
-
-# install Tailscale as root
-USER root
 COPY install-tailscale.sh /tmp
 RUN /tmp/install-tailscale.sh && rm -r /tmp/*
-RUN chown 1000:1000 /var/run/tailscale /var/cache/tailscale /var/lib/tailscale
-
-USER 1000:1000
-
-WORKDIR /home/render
 
 CMD ./start.sh
