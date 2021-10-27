@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Ignore Tailscale during port detection on Render
 if [[ ${RENDER_PORT_DETECTOR:-} != "true" ]]; then
-  . /home/render/run-tailscale.sh
+  . /render/run-tailscale.sh
 fi
 
 # Start a simple HTTP server to run this repo as a private service
