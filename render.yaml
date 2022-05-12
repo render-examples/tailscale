@@ -1,5 +1,5 @@
 services:
-  - type: pserv
+  - type: worker
     name: render-subnet-router
     env: docker
     envVars:
