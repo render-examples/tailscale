@@ -2,6 +2,8 @@ services:
   - type: worker
     name: render-subnet-router
     env: docker
+    region: frankfurt
+    plan: starter
     envVars:
       - key: TAILSCALE_AUTHKEY
         sync: false
