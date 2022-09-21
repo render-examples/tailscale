@@ -2,6 +2,7 @@ services:
   - type: worker
     name: render-subnet-router
     env: docker
+    autoDeploy: false
     envVars:
       - key: TAILSCALE_AUTHKEY
         sync: false
