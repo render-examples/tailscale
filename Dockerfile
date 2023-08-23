@@ -10,6 +10,8 @@ RUN apt-get -qq update \
     ca-certificates \
     netcat-openbsd \
     wget \
+    curl \
+    vim \
     dnsutils \
   > /dev/null \
   && apt-get -qq clean \
