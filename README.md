@@ -10,7 +10,7 @@ A Tailscale [subnet router](https://tailscale.com/kb/1019/subnets/) acts as a ga
 
 ### One Click Deploy
 
-Use the button below to deploy a Tailscale subnet router on Render. [Generate a Tailscale auth key](https://login.tailscale.com/admin/settings/authkeys) and enter it when prompted. Use a one-off key for maximum security.
+Use the button below to deploy a Tailscale subnet router on Render. [Generate a Tailscale auth key](https://login.tailscale.com/admin/settings/authkeys) and provide that as the `TAILSCALE_AUTHKEY` environment variable in Render. Use a one-off key for maximum security.
 
 <a href="https://render.com/deploy?repo=https://github.com/render-examples/tailscale/tree/main">
   <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
